@@ -14,7 +14,7 @@ export const Comunicados: CollectionConfig = {
       async ({ doc, operation }) => {
         if (operation === 'create') {
           try {
-            await fetch('https://onesignal.com/api/v1/notifications', {
+            const res = await fetch('https://onesignal.com/api/v1/notifications', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -22,11 +22,15 @@ export const Comunicados: CollectionConfig = {
               },
               body: JSON.stringify({
                 app_id: process.env.ONESIGNAL_APP_ID,
-                headings: { es: "Nuevo Comunicado Escolar" },
-                contents: { es: doc.titulo },
+                headings: { en: "Nuevo Comunicado Escolar", es: "Nuevo Comunicado Escolar" },
+                contents: { en: doc.titulo, es: doc.titulo },
                 included_segments: ['Subscribed Users'],
               }),
             })
+            
+            if (!res.ok) {
+               console.error("OneSignal Server Error (Comunicados):", await res.text())
+            }
           } catch (error) {
             console.error('Error enviando OneSignal en Comunicados:', error)
           }
