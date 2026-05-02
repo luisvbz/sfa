@@ -31,9 +31,11 @@ export default function CalendarClient({
       setIsLoading(true)
       setSelectedDay(null)
       try {
-        // Obtenemos los límites del mes actual para la API
-        const start = new Date(currentYear, currentMonth, 1).toISOString()
-        const end = new Date(currentYear, currentMonth + 1, 0, 23, 59, 59).toISOString()
+        // Obtenemos los límites matemáticos del mes en Zona Horaria de Perú (GMT-5)
+        const lastDay = new Date(currentYear, currentMonth + 1, 0).getDate()
+        const mesFormateado = String(currentMonth + 1).padStart(2, '0')
+        const start = encodeURIComponent(`${currentYear}-${mesFormateado}-01T00:00:00.000-05:00`)
+        const end = encodeURIComponent(`${currentYear}-${mesFormateado}-${String(lastDay).padStart(2, '0')}T23:59:59.999-05:00`)
         
         // Llamada nativa a la colección de PayloadCMS
         const url = `/api/eventos?limit=100&where[fecha][greater_than_equal]=${start}&where[fecha][less_than_equal]=${end}&sort=fecha`
@@ -69,11 +71,13 @@ export default function CalendarClient({
   const emptyCells = Array.from({length: startDayFallback}).map((_, i) => <div key={`blank-${i}`} />)
   const daysList = Array.from({length: daysInMonth}).map((_, i) => i + 1)
 
-  // Filtrado al hacer clic
+  // Filtrado al hacer clic (forzando horario local para asegurar exactitud)
   let eventosMostrados = eventos
   if (selectedDay !== null) {
     eventosMostrados = eventos.filter((e: any) => {
-      return new Date(e.fecha).getDate() === selectedDay
+      // Extraemos el día forzando el huso horario de Lima
+      const matchDay = new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: 'numeric' }).format(new Date(e.fecha))
+      return parseInt(matchDay, 10) === selectedDay
     })
   }
 
@@ -116,7 +120,11 @@ export default function CalendarClient({
           {daysList.map((day) => {
              const isRealToday = esMesActualReal && day === hoyReal.getDate()
              const isSelected = selectedDay === day
-             const hasEvent = eventos.some(e => new Date(e.fecha).getDate() === day)
+             // Validamos para poner el punto indicador
+             const hasEvent = eventos.some(e => {
+               const evDay = parseInt(new Intl.DateTimeFormat('es-PE', { timeZone: 'America/Lima', day: 'numeric' }).format(new Date(e.fecha)), 10)
+               return evDay === day
+             })
 
              // Si estamos cargando mostramos el calendario atenuado o con skeleton
              if (isLoading) {
@@ -197,7 +205,7 @@ export default function CalendarClient({
                       <div className="flex items-center gap-2 mb-3 text-text-muted">
                         <span className="material-symbols-outlined text-[18px]">schedule</span>
                         <span className="font-body text-[13px]">
-                          {new Date(evento.fecha).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric'})}
+                          {new Date(evento.fecha).toLocaleDateString('es-PE', { timeZone: 'America/Lima', day: 'numeric', month: 'long', year: 'numeric'})}
                         </span>
                       </div>
                       

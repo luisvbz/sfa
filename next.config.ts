@@ -34,4 +34,6 @@ const withPWA = withPWAInit({
   disable: process.env.NODE_ENV === "development",
 })
 
-export default withPayload(withPWA(nextConfig), { devBundleServerPackages: false })
+const payloadConfig = withPayload(nextConfig, { devBundleServerPackages: false })
+
+export default withPWA(payloadConfig)

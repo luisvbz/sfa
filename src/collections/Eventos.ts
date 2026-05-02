@@ -5,6 +5,9 @@ export const Eventos: CollectionConfig = {
   admin: {
     useAsTitle: 'titulo',
   },
+  access: {
+    read: () => true,
+  },
   hooks: {
     afterChange: [
       async ({ doc, operation }) => {

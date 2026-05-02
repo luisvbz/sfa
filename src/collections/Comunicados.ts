@@ -6,6 +6,9 @@ export const Comunicados: CollectionConfig = {
   admin: {
     useAsTitle: 'titulo',
   },
+  access: {
+    read: () => true,
+  },
   hooks: {
     afterChange: [
       async ({ doc, operation }) => {
