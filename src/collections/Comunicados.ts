@@ -14,6 +14,7 @@ export const Comunicados: CollectionConfig = {
       async ({ doc, operation }) => {
         if (operation === 'create') {
           try {
+            const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || ''
             const res = await fetch('https://onesignal.com/api/v1/notifications', {
               method: 'POST',
               headers: {
@@ -24,6 +25,7 @@ export const Comunicados: CollectionConfig = {
                 app_id: process.env.ONESIGNAL_APP_ID,
                 headings: { en: "Nuevo Comunicado Escolar", es: "Nuevo Comunicado Escolar" },
                 contents: { en: doc.titulo, es: doc.titulo },
+                url: `${serverUrl}/comunicados/${doc.id}`,
                 included_segments: ['All'],
               }),
             })

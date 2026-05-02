@@ -13,6 +13,7 @@ export const Eventos: CollectionConfig = {
       async ({ doc, operation }) => {
         if (operation === 'create') {
           try {
+            const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || ''
             const res = await fetch('https://onesignal.com/api/v1/notifications', {
               method: 'POST',
               headers: {
@@ -23,6 +24,7 @@ export const Eventos: CollectionConfig = {
                 app_id: process.env.ONESIGNAL_APP_ID,
                 headings: { en: "Nueva Actividad Escolar", es: "Nueva Actividad Escolar" },
                 contents: { en: doc.titulo, es: doc.titulo },
+                url: `${serverUrl}/evento/${doc.id}`,
                 included_segments: ['All'],
               }),
             })
