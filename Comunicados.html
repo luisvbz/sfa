@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#42493a",
+                    "secondary": "#7f5616",
+                    "primary-dark": "#254d00",
+                    "primary-container": "#336600",
+                    "surface-tint": "#376b05",
+                    "secondary-dark": "#7a5720",
+                    "border": "rgba(51, 102, 0, 0.12)",
+                    "secondary-container": "#fcc57b",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9f4",
+                    "primary-fixed-dim": "#9cd76b",
+                    "primary-light": "#e8f0d9",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#275000",
+                    "on-primary-fixed": "#0c2000",
+                    "primary": "#244c00",
+                    "secondary-fixed-dim": "#f3bd74",
+                    "on-tertiary-fixed-variant": "#7a2263",
+                    "tertiary-container": "#923778",
+                    "surface-container-low": "#f2f5e8",
+                    "inverse-on-surface": "#eff2e5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ffbfe5",
+                    "text-muted": "#6b6b6b",
+                    "outline": "#727a69",
+                    "secondary-fixed": "#ffddb4",
+                    "secondary-light": "#f5eadb",
+                    "text-main": "#1a1a1a",
+                    "tertiary": "#751e5f",
+                    "tertiary-fixed": "#ffd8ed",
+                    "outline-variant": "#c2c9b6",
+                    "primary-mid": "#4d8f00",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#b7f484",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2e3229",
+                    "on-surface": "#191d15",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "inverse-primary": "#9cd76b",
+                    "on-primary-container": "#a6e375",
+                    "on-secondary-fixed": "#291800",
+                    "secondary-mid": "#c49050",
+                    "on-secondary-container": "#775010",
+                    "on-tertiary-fixed": "#3b002e",
+                    "tertiary-fixed-dim": "#ffade0",
+                    "surface-bright": "#f8fbee",
+                    "surface-container-highest": "#e1e4d7",
+                    "on-background": "#191d15",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e1e4d7",
+                    "surface-container-high": "#e7e9dd",
+                    "surface-dim": "#d8dbcf",
+                    "surface-container": "#ecefe3",
+                    "error-container": "#ffdad6",
+                    "background": "#f8fbee"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "2xl": "32px",
+                    "lg": "16px",
+                    "xl": "24px",
+                    "3xl": "48px",
+                    "md": "12px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body": ["DM Sans"],
+                    "label": ["DM Sans"],
+                    "h1": ["DM Serif Display"],
+                    "h2": ["DM Sans"],
+                    "small": ["DM Sans"],
+                    "caption": ["DM Sans"],
+                    "h3": ["DM Sans"],
+                    "display": ["DM Serif Display"]
+            },
+            "fontSize": {
+                    "body": ["15px", {"lineHeight": "1.65", "fontWeight": "400"}],
+                    "label": ["11px", {"letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "h1": ["28px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "h2": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "h3": ["16px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "display": ["36px", {"lineHeight": "1.15", "fontWeight": "400"}],
+                    "caption": ["12px", {"letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "small": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'DM Sans', sans-serif; background-color: #f8fbee; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white border-b border-stone-100">
+<div class="flex items-center gap-sm">
+<img alt="Colegio SFA Logo" class="h-10 w-10 rounded-full object-cover border border-primary-light" data-alt="A sophisticated minimalist logo for Colegio SFA, featuring an elegant heraldic crest with subtle evergreen leaves and golden accents. The logo is displayed on a clean white circular background with high contrast and premium detailing, embodying an authoritative yet welcoming educational identity in a modern academic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrAOFq63m8mTrt7hrA0hUzTamGpfibOP831kzQCNwMnw5aDR7CO4HaDw1SJXOt7udl-fpSHfFhALzpy3uNdYaq-mPBdGmSYKa78jsF-Dy96xHVVynM_Nm3WrkwyfqZw9JphSsPHD2cJ6JW5--T8VdNTTOpI2NA95ztTV_24Q3rGsI5oPO9bMfS_-jcjNKYi0xTmocukmiQXBffnLyaZwk-LfDYvLrn7XYV-WjdtStdvwtwaGVKvhAscQf5glt-qGUoN7J5j2YdWLw"/>
+<h1 class="text-2xl font-serif text-emerald-900 font-serif">Colegio SFA</h1>
+</div>
+<div class="flex items-center">
+<button class="material-symbols-outlined text-emerald-900 p-sm hover:bg-stone-50 rounded-full transition-transform active:scale-95" data-icon="account_circle">account_circle</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto">
+<!-- Search and Filter Section -->
+<section class="mb-3xl">
+<h2 class="font-h1 text-h1 text-primary mb-lg">Comunicados</h2>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-lg top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-3xl pr-lg py-md bg-white border-1.5 border-outline-variant rounded-xl focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all font-body text-body" placeholder="Buscar avisos o noticias..." type="text"/>
+</div>
+</section>
+<!-- Feed of Comunicados -->
+<div class="flex flex-col gap-xl">
+<!-- Communicado Card 1 -->
+<article class="bg-white border border-border rounded-[28px] p-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div class="flex flex-col">
+<span class="font-label text-label text-secondary uppercase mb-xs">Institucional</span>
+<h3 class="font-h2 text-h2 text-primary">Inscripciones Ciclo Escolar 2024</h3>
+</div>
+<div class="bg-primary-light h-10 w-10 rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+</div>
+</div>
+<p class="font-body text-body text-on-surface-variant mb-xl">Les informamos que el proceso de reinscripción para el próximo ciclo escolar dará inicio el próximo lunes 15 de mayo. Por favor revisen los requisitos actualizados.</p>
+<div class="flex items-center justify-between pt-lg border-t border-stone-100">
+<div class="flex items-center gap-xs text-text-muted">
+<span class="material-symbols-outlined text-[18px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-caption text-caption">10 Mayo, 2024</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="flex items-center gap-xs px-sm py-xs bg-surface-container-low rounded-full text-primary-dark">
+<span class="material-symbols-outlined text-[16px]" data-icon="attachment">attachment</span>
+<span class="font-caption text-caption">2 Archivos</span>
+</div>
+<button class="material-symbols-outlined text-primary hover:bg-primary-light rounded-full p-xs transition-colors" data-icon="arrow_forward">arrow_forward</button>
+</div>
+</div>
+</article>
+<!-- Communicado Card 2 (Image focused) -->
+<article class="bg-white border border-border rounded-[28px] overflow-hidden shadow-sm">
+<div class="h-48 w-full overflow-hidden">
+<img alt="Graduation Event" class="w-full h-full object-cover" data-alt="A joyful graduation ceremony scene in a sunlit university courtyard. The atmosphere is warm and celebratory with golden hour lighting filtering through lush green trees. Students in dark academic robes are gathered in small groups, capturing a moment of achievement and community within a premium, traditional academic environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7Rjs7MxjGY9P-G0LNGy4PRp396dyN4X4LPo3zwDL6JDVKwqlTzMzndj8LT7z1WynrlzwJDDa99LzUJD3kjDXs0idQiMfT1WohJve6tVIj6Iwr8eVk-8pFFNl12KB1Jg13H-ZL_8tbzmM2aRbRiNISizizPRKr0RYKNRLtmFDQuFGwGMkRBzuzIQloiARgOutPjxOV4VLrTQacttIw-dkXu1M92viuvXamEDX3JNxSwFZLXGAtkTLh1ZCxbJas8u1Wnj_8UXsyWyI"/>
+</div>
+<div class="p-xl">
+<div class="flex justify-between items-start mb-md">
+<div class="flex flex-col">
+<span class="font-label text-label text-tertiary uppercase mb-xs">Eventos</span>
+<h3 class="font-h2 text-h2 text-primary">Ceremonia de Graduación 2024</h3>
+</div>
+</div>
+<p class="font-body text-body text-on-surface-variant mb-xl">Extendemos una cordial invitación a todos los padres de familia para acompañarnos en la clausura de fin de cursos y entrega de diplomas.</p>
+<div class="flex items-center justify-between pt-lg border-t border-stone-100">
+<div class="flex items-center gap-xs text-text-muted">
+<span class="material-symbols-outlined text-[18px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-caption text-caption">08 Mayo, 2024</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-primary hover:bg-primary-light rounded-full p-xs transition-colors" data-icon="arrow_forward">arrow_forward</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Communicado Card 3 -->
+<article class="bg-white border border-border rounded-[28px] p-xl shadow-sm">
+<div class="flex justify-between items-start mb-md">
+<div class="flex flex-col">
+<span class="font-label text-label text-secondary uppercase mb-xs">Aviso Urgente</span>
+<h3 class="font-h2 text-h2 text-primary">Mantenimiento de Plataforma</h3>
+</div>
+<div class="bg-secondary-light h-10 w-10 rounded-xl flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="construction">construction</span>
+</div>
+</div>
+<p class="font-body text-body text-on-surface-variant mb-xl">El portal de calificaciones estará fuera de servicio por mantenimiento programado este fin de semana. Agradecemos su comprensión.</p>
+<div class="flex items-center justify-between pt-lg border-t border-stone-100">
+<div class="flex items-center gap-xs text-text-muted">
+<span class="material-symbols-outlined text-[18px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-caption text-caption">05 Mayo, 2024</span>
+</div>
+<button class="material-symbols-outlined text-primary hover:bg-primary-light rounded-full p-xs transition-colors" data-icon="arrow_forward">arrow_forward</button>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white border-t border-stone-100 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-3xl">
+<a class="flex flex-col items-center justify-center text-stone-400 px-6 py-1.5 hover:text-emerald-700 transition-all" href="#">
+<span class="material-symbols-outlined mb-xs" data-icon="calendar_month">calendar_month</span>
+<span class="font-label text-xs font-medium">Eventos</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-emerald-50 text-emerald-900 rounded-2xl px-6 py-1.5 scale-97 transition-all" href="#">
+<span class="material-symbols-outlined mb-xs" data-icon="campaign" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span class="font-label text-xs font-medium">Comunicados</span>
+</a>
+</nav>
+<!-- Floating Action Button (FAB) - For New Announcement (Admin only view potentially) -->
+<button class="fixed bottom-24 right-6 bg-primary text-on-primary w-14 h-14 rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>

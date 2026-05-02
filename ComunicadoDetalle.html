@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-surface-variant": "#42493a",
+                  "secondary": "#7f5616",
+                  "primary-dark": "#254d00",
+                  "primary-container": "#336600",
+                  "surface-tint": "#376b05",
+                  "secondary-dark": "#7a5720",
+                  "border": "rgba(51, 102, 0, 0.12)",
+                  "secondary-container": "#fcc57b",
+                  "on-primary": "#ffffff",
+                  "surface": "#f7f9f4",
+                  "primary-fixed-dim": "#9cd76b",
+                  "primary-light": "#e8f0d9",
+                  "on-secondary": "#ffffff",
+                  "on-primary-fixed-variant": "#275000",
+                  "on-primary-fixed": "#0c2000",
+                  "primary": "#244c00",
+                  "secondary-fixed-dim": "#f3bd74",
+                  "on-tertiary-fixed-variant": "#7a2263",
+                  "tertiary-container": "#923778",
+                  "surface-container-low": "#f2f5e8",
+                  "inverse-on-surface": "#eff2e5",
+                  "surface-container-lowest": "#ffffff",
+                  "on-tertiary-container": "#ffbfe5",
+                  "text-muted": "#6b6b6b",
+                  "outline": "#727a69",
+                  "secondary-fixed": "#ffddb4",
+                  "secondary-light": "#f5eadb",
+                  "text-main": "#1a1a1a",
+                  "tertiary": "#751e5f",
+                  "tertiary-fixed": "#ffd8ed",
+                  "outline-variant": "#c2c9b6",
+                  "primary-mid": "#4d8f00",
+                  "error": "#ba1a1a",
+                  "on-tertiary": "#ffffff",
+                  "primary-fixed": "#b7f484",
+                  "on-error": "#ffffff",
+                  "inverse-surface": "#2e3229",
+                  "on-surface": "#191d15",
+                  "on-secondary-fixed-variant": "#633f00",
+                  "inverse-primary": "#9cd76b",
+                  "on-primary-container": "#a6e375",
+                  "on-secondary-fixed": "#291800",
+                  "secondary-mid": "#c49050",
+                  "on-secondary-container": "#775010",
+                  "on-tertiary-fixed": "#3b002e",
+                  "tertiary-fixed-dim": "#ffade0",
+                  "surface-bright": "#f8fbee",
+                  "surface-container-highest": "#e1e4d7",
+                  "on-background": "#191d15",
+                  "on-error-container": "#93000a",
+                  "surface-variant": "#e1e4d7",
+                  "surface-container-high": "#e7e9dd",
+                  "surface-dim": "#d8dbcf",
+                  "surface-container": "#ecefe3",
+                  "error-container": "#ffdad6",
+                  "background": "#f8fbee"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "sm": "8px",
+                  "2xl": "32px",
+                  "lg": "16px",
+                  "xl": "24px",
+                  "3xl": "48px",
+                  "md": "12px",
+                  "xs": "4px"
+          },
+          "fontFamily": {
+                  "body": ["DM Sans"],
+                  "label": ["DM Sans"],
+                  "h1": ["DM Serif Display"],
+                  "h2": ["DM Sans"],
+                  "small": ["DM Sans"],
+                  "caption": ["DM Sans"],
+                  "h3": ["DM Sans"],
+                  "display": ["DM Serif Display"]
+          },
+          "fontSize": {
+                  "body": ["15px", {"lineHeight": "1.65", "fontWeight": "400"}],
+                  "label": ["11px", {"letterSpacing": "0.1em", "fontWeight": "600"}],
+                  "h1": ["28px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                  "h2": ["20px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                  "h3": ["16px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                  "display": ["36px", {"lineHeight": "1.15", "fontWeight": "400"}],
+                  "small": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                  "caption": ["12px", {"letterSpacing": "0.02em", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .rich-text-content p { margin-bottom: 1.5rem; }
+    .rich-text-content h4 { font-family: 'DM Sans'; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #244c00; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-body text-on-surface">
+<!-- TopAppBar Section -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white border-b border-stone-100">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional school logo for Colegio SFA, featuring an elegant crest with organic leaf patterns in deep forest green and gold. The logo is centered on a clean white background, reflecting a prestigious and modern academic identity with a sophisticated organic feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOsGu5uQsR6yvk0R6bkFm0xSb30veogqJ3RJOyiKMF-_LGiECbATJA4JYQOMvRZmit4ZvCnTv1KgzZ2ABMXOEf-CAvPuDmId4ZWGQ266MxR6OuYvghcZheWyYegu8jR1AXcwY7q3hzO460YT3cjEY-dMpsqUbSqAN4hkaabrQQAybyKCEA-kr97JU1peSGUB07j-QXs5GNp774HUep5vqdqVl_GiO96IQClJ8Ch_Suvnzj7jmB6v6r5KJvqn_PRdnrD77o_B2IPSg"/>
+</div>
+<h1 class="text-2xl font-serif text-emerald-900 font-h1">Colegio SFA</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-50 transition-all active:scale-95 text-emerald-900">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="pt-16 pb-32 min-h-screen max-w-4xl mx-auto px-6 md:px-2xl">
+<!-- Hero Image for the News -->
+<div class="mt-xl mb-2xl">
+<div class="relative w-full h-64 md:h-96 rounded-[28px] overflow-hidden border border-border shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A high-quality wide-angle shot of a bright, modern school library with large windows overlooking a lush green forest. The interior features warm wood textures, gold-toned lighting fixtures, and comfortable seating. The atmosphere is peaceful, professional, and academic, bathed in natural morning light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaGubUrzn9tOUBwSn0DQvgiPIxGwbpCUbrarf1UiTc3niY66tpscMt77cHjQPDO6Q_6qtWzzLtOiQXjJDULwFzu52i0EOdSK0omtTlgs-mafaazsiN584NgAU2MMjoteJ3JIjlXVawpJnsT6o2Cfoj-hNvC9XiqWq1pLanNuH73lTovRsYajTZMXLhSuJ-_CdKH3xS00kKJTC--Ofx_B4Ga4Nc2udbLluLUspc3eTXzuU8sEoU5DNihVDCKENDz3KRa3XKSCRgwnM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-lg left-lg">
+<span class="inline-block px-md py-xs bg-secondary-container text-on-secondary-container rounded-full font-label text-caption">NOTICIA ACADÉMICA</span>
+</div>
+</div>
+</div>
+<!-- Communication Details -->
+<article class="space-y-xl">
+<header class="space-y-sm">
+<div class="flex items-center gap-xs text-primary font-medium">
+<span class="material-symbols-outlined text-[20px]" data-icon="event">event</span>
+<span class="font-body text-small">Publicado el 24 de Octubre, 2023</span>
+</div>
+<h2 class="font-h1 text-display text-primary leading-tight">Implementación de Nuevos Programas de Sustentabilidad y Huerto Escolar</h2>
+</header>
+<!-- Rich Text Body -->
+<div class="rich-text-content text-on-surface-variant leading-relaxed">
+<p>Estimados padres de familia y miembros de nuestra comunidad educativa, nos es grato informarles sobre el lanzamiento de nuestro nuevo programa integral de <strong>Educación Ambiental</strong>, el cual entrará en vigor a partir del próximo mes.</p>
+<h4>Un Compromiso con el Futuro</h4>
+<p>Este proyecto no solo busca embellecer nuestro campus, sino transformar la manera en que nuestros estudiantes interactúan con su entorno natural. A través del nuevo <em>Huerto Escolar Orgánico</em>, los alumnos desde preescolar hasta bachillerato podrán experimentar de primera mano los ciclos de la vida y la importancia de la seguridad alimentaria.</p>
+<p>El programa incluirá talleres semanales, una nueva estación de compostaje y un sistema de captación de agua de lluvia diseñado por nuestros propios estudiantes del club de ciencias. Creemos firmemente que estos espacios de aprendizaje activo son fundamentales para forjar líderes conscientes y responsables.</p>
+<div class="my-2xl p-xl bg-primary-light/30 border-l-[3px] border-primary-mid rounded-[20px]">
+<p class="font-h3 text-primary-dark mb-0">"La naturaleza no es un lugar que se visita, es el hogar que debemos proteger desde las aulas." — Dirección Académica SFA.</p>
+</div>
+<p>Para conocer más detalles sobre el calendario de actividades y cómo participar como voluntario en las jornadas de siembra comunitaria, por favor revisen los documentos adjuntos en la parte inferior de este comunicado.</p>
+</div>
+<!-- Attachment List -->
+<section class="mt-3xl pt-2xl border-t border-border">
+<div class="flex items-center gap-sm mb-xl">
+<span class="material-symbols-outlined text-primary" data-icon="attach_file">attach_file</span>
+<h3 class="font-h2 text-h2 text-primary">Archivos Adjuntos</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Attachment Card 1 -->
+<div class="flex items-center justify-between p-lg bg-surface-container-low rounded-[28px] border border-border group hover:bg-white transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-xl bg-primary-light flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<p class="font-body font-bold text-primary leading-none mb-xs">Guia_Programa.pdf</p>
+<p class="text-caption text-text-muted">PDF • 2.4 MB</p>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-primary border border-border hover:bg-primary-container hover:text-white transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<!-- Attachment Card 2 -->
+<div class="flex items-center justify-between p-lg bg-surface-container-low rounded-[28px] border border-border group hover:bg-white transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-xl bg-primary-light flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</div>
+<div>
+<p class="font-body font-bold text-primary leading-none mb-xs">Calendario_Siembra.pdf</p>
+<p class="text-caption text-text-muted">PDF • 1.1 MB</p>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-primary border border-border hover:bg-primary-container hover:text-white transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</div>
+</section>
+</article>
+</main>
+<!-- BottomNavBar Section -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white border-t border-stone-100 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-3xl">
+<!-- Nav Item 1: Eventos -->
+<a class="flex flex-col items-center justify-center text-stone-400 px-6 py-1.5 transition-all hover:text-emerald-700" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_month">calendar_month</span>
+<span class="font-label text-caption">Eventos</span>
+</a>
+<!-- Nav Item 2: Comunicados (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-emerald-50 text-emerald-900 rounded-2xl px-6 py-1.5 transition-all active:scale-97" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="campaign" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span class="font-label text-caption font-bold">Comunicados</span>
+</a>
+</nav>
+</body></html>

@@ -1,4 +1,5 @@
 import { withPayload } from '@payloadcms/next/withPayload'
+import withPWAInit from "@ducanh2912/next-pwa"
 import type { NextConfig } from 'next'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -28,4 +29,9 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withPayload(nextConfig, { devBundleServerPackages: false })
+const withPWA = withPWAInit({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
+})
+
+export default withPayload(withPWA(nextConfig), { devBundleServerPackages: false })
