@@ -19,7 +19,7 @@ export const Comunicados: CollectionConfig = {
               },
               body: JSON.stringify({
                 app_id: process.env.ONESIGNAL_APP_ID,
-                headings: { es: "Nuevo Comunicado Institucional" },
+                headings: { es: "Nuevo Comunicado Escolar" },
                 contents: { es: doc.titulo },
                 included_segments: ['Subscribed Users'],
               }),

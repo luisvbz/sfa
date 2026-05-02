@@ -1,5 +1,6 @@
 import React from 'react'
 import CalendarClient from './CalendarClient'
+import InstallPWA from './components/InstallPWA'
 
 export const dynamic = 'force-dynamic'
 
@@ -16,6 +17,7 @@ export default async function HomePage() {
       <div className="mb-8">
         <h2 className="font-h1 text-[28px] text-primary mb-1">Calendario de Actividades</h2>
         <p className="font-body text-[15px] text-on-surface-variant">Mantente al día con los eventos escolares y tareas.</p>
+        <InstallPWA />
       </div>
 
       <CalendarClient initialMonth={initialMonth} initialYear={initialYear} />
