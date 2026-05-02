@@ -23,7 +23,7 @@ export const Eventos: CollectionConfig = {
                 app_id: process.env.ONESIGNAL_APP_ID,
                 headings: { en: "Nueva Actividad Escolar", es: "Nueva Actividad Escolar" },
                 contents: { en: doc.titulo, es: doc.titulo },
-                included_segments: ['Subscribed Users'],
+                included_segments: ['All'],
               }),
             })
             

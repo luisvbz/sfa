@@ -24,7 +24,7 @@ export const Comunicados: CollectionConfig = {
                 app_id: process.env.ONESIGNAL_APP_ID,
                 headings: { en: "Nuevo Comunicado Escolar", es: "Nuevo Comunicado Escolar" },
                 contents: { en: doc.titulo, es: doc.titulo },
-                included_segments: ['Subscribed Users'],
+                included_segments: ['All'],
               }),
             })
             
