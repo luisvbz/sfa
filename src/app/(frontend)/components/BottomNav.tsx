@@ -20,7 +20,7 @@ export default function BottomNav() {
         <span className="material-symbols-outlined mb-1" style={isEventosActive ? { fontVariationSettings: "'FILL' 1" } : {}}>
           calendar_month
         </span>
-        <span className={`font-label text-xs ${isEventosActive ? 'font-bold' : 'font-medium'}`}>Eventos</span>
+        <span className={`font-label text-xs ${isEventosActive ? 'font-bold' : 'font-medium'}`}>Actividades</span>
       </Link>
       
       <Link href="/comunicados" className={`flex flex-col items-center justify-center transition-all cursor-pointer px-6 py-1.5 ${isComunicadosActive ? 'bg-emerald-50 text-emerald-900 rounded-2xl scale-97' : 'text-stone-400 hover:text-emerald-700'}`}>

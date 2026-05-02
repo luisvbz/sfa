@@ -63,6 +63,31 @@ export default function CalendarClient({
     setCurrentMonth(currentMonth - 1)
   }
 
+  // Lógica para Swipe (Deslizar el dedo)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
+
+  const minSwipeDistance = 50
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) nextMonth()
+    if (isRightSwipe) prevMonth()
+  }
+
   // Generar datos del calendario para el mes
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay()
@@ -86,7 +111,12 @@ export default function CalendarClient({
 
   return (
     <>
-      <section className="bg-surface-container-lowest border border-border rounded-[28px] p-4 mb-12 shadow-sm">
+      <section 
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        className="bg-surface-container-lowest border border-border rounded-[28px] p-4 mb-12 shadow-sm touch-pan-y"
+      >
         <div className="flex items-center justify-between mb-4 px-1">
           <h3 className="font-h2 text-[20px] text-primary">{MESES[currentMonth]} {currentYear}</h3>
           <div className="flex gap-2">

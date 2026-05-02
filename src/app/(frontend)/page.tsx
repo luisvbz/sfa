@@ -16,7 +16,7 @@ export default async function HomePage() {
     <>
       <div className="mb-8">
         <h2 className="font-h1 text-[28px] text-primary mb-1">Calendario de Actividades</h2>
-        <p className="font-body text-[15px] text-on-surface-variant">Mantente al día con los eventos escolares y tareas.</p>
+        <p className="font-body text-[15px] text-on-surface-variant">Inicial 4 años.</p>
         <InstallPWA />
       </div>
 
